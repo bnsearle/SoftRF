@@ -282,7 +282,8 @@ void NMEA_Export()
             snprintf_P(NMEABuffer, sizeof(NMEABuffer), PSTR("$PFLAA,%d,%d,%d,%d,%d,%06X!%s_%06X,%d,,%d,%s,%d*"),
                     alarm_level,
                     (int) (distance * cos(radians(bearing))), (int) (distance * sin(radians(bearing))),
-                    alt_diff, ADDR_TYPE_FLARM, Container[i].addr,
+//                    alt_diff, ADDR_TYPE_FLARM, Container[i].addr,
+                       alt_diff, Container[i].addr_type, Container[i].addr, // replace constant with element
                     NMEA_CallSign_Prefix[Container[i].protocol], Container[i].addr,
                     (int) Container[i].course, (int) (Container[i].speed * _GPS_MPS_PER_KNOT),
                     ltrim(str_climb_rate), Container[i].aircraft_type);
